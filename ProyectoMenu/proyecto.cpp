@@ -18,8 +18,11 @@
     using std::left;//para alinear ala izquierda
 
 int main(){
-    int opcionm1;
+    int opcionm1, opcionm2;
+    long long precioV;
     string nombrec;
+    float recargo = 0; 
+    int jardin = 0, piscina = 0;
     SetConsoleOutputCP(65001); // Fuerza UTF-8 para imprimir ñ y tildes
 
     cout << "\033[32mMY HOME\033[0m\n";
@@ -67,7 +70,7 @@ int main(){
 
          cout <<endl;
          cout <<endl;
-
+ 
          cout << "Que tipo de vivienda deseea?\n";
          cout <<endl;
          cout << "\033[92m 1)\033[0m"<<"De un piso colindante \n";
@@ -83,30 +86,160 @@ int main(){
             Sleep(1500);
             exit (0);
          }
-
+    
+         cout << "Que tipo de acabados desea deseea?\n";
+         cout <<endl;
+         cout << "\033[92m 1)\033[0m"<<"En obra negra \n";
+         cout << "\033[92m 2)\033[0m"<<"Acabados sencillos\n";
+         cout << "\033[92m 3)\033[0m"<<"Acabados especiales\n";
+         cin >> opcionm2;
+    
+         if (opcionm2 < 0 || opcionm2 > 3)
+         {
+            cout << "\033[31mDato invalido \033[0m\n";
+            cout <<"Saliendo..";
+            Sleep(1500);
+            exit (0);
+         }
+        
          switch (opcionm1)
          {
 
-         case 1:
-         {
-
-            break;
-         }
-         case 2:
-         {
-
-            break;
-         }
-         case 3:
-         {
-
-            break;
-         }
-         case 4:
-         {
-
-            break;
-         }
+             case 1:
+             {
+                switch(opcionm2) 
+                {
+                    case 1:
+                    {
+                        precioV = 75000000;
+                        break;
+                    }
+                    case 2:
+                    {
+                        precioV = 85000000;
+                        break;
+                    }
+                    case 3:
+                    {
+                        precioV = 90000000;
+                        break;
+                    }
+                }
+                break;
+             }// termina case 1
+             case 2:
+             {
+                switch(opcionm2) 
+                {
+                    case 1:
+                    {
+                        precioV = 85000000;
+                        break;
+                    }
+                    case 2:
+                    {
+                        precioV = 95000000;
+                        break;
+                    }
+                    case 3:
+                    {
+                        precioV = 100000000;
+                        break;
+                    }
+                }
+                break;
+             }// termina case 2
+             case 3:
+             {
+                switch(opcionm2) 
+                {
+                    case 1:
+                    {
+                        precioV = 80000000;
+                        break;
+                    }
+                    case 2:
+                    {
+                        precioV = 90000000;
+                        break;
+                    }
+                    case 3:
+                    {
+                        precioV = 95000000;
+                        break;
+                    }
+                }
+                cout << "¿Qué tipo de jardín desea?\n1) Grande (15%)\n2) Pequeño (10%)\n";
+                cin >> jardin;
+                if (jardin == 1)
+                {
+                    recargos += precioV * 0.15;
+                }
+                else if (jardin == 2)
+                {
+                    recargos += precioV * 0.10;
+                }
+                else
+                {
+                    cout << "\033[31mDato invalido \033[0m\n";
+                    cout <<"Saliendo..";
+                    Sleep(1500);
+                    exit (0);
+                }
+                cout << "¿Desea vista a la piscina? (1 = Sí, 0 = No): ";
+                cin >> piscina;
+                if (piscina == 1)
+                {
+                    recargos += precioV * 0.05;
+                }
+                break;
+             }// termina case 3 
+             case 4:
+             {
+                switch(opcionm2) 
+                {
+                    case 1:
+                    {
+                        precioV= 90000000;
+                        break;
+                    }
+                    case 2:
+                    {
+                        precioV = 100000000;
+                        break;
+                    }
+                    case 3:
+                    {
+                        precioB = 105000000;
+                        break;
+                    }
+                }//termina swtich
+                cout << "¿Qué tipo de jardín desea?\n1) Grande (15%)\n2) Pequeño (10%)\n";
+                cin >> jardin;
+                if (jardin == 1)
+                {
+                    recargos += precioV * 0.15;
+                }
+                else if (jardin == 2)
+                {
+                    recargos += precioV * 0.10;
+                }
+                else
+                {
+                    cout << "\033[31mDato invalido \033[0m\n";
+                    cout <<"Saliendo..";
+                    Sleep(1500);
+                    exit (0);
+                }
+                 
+                cout << "¿Desea vista a la piscina? (1 = Sí, 0 = No): ";
+                cin >> piscina;
+                if (piscina == 1)
+                {
+                    recargos += precioV * 0.05;
+                }
+                break;
+            }// termina case 4
         }//fin del switch del menu1
 
 
